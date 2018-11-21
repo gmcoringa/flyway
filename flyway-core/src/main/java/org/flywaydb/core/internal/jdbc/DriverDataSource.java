@@ -357,6 +357,10 @@ public class DriverDataSource implements DataSource {
             return "com.informix.jdbc.IfxDriver";
         }
 
+        if(url.startsWith("jdbc:hive:") || url.startsWith("jdbc:hive2:")){
+            return "org.flyway.core.internal.database.hive.driver.HiveProxyDriver";
+        }
+
         return null;
     }
 
